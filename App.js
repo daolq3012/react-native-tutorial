@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Hello world!</Text>
-      </View>
-    );
-  }
-}
+import Home from './Home';
+import Props from './Props';
+
+const AppNavigator = createStackNavigator({
+  HomeScreen: { 
+    screen: Home,
+  },
+  PropsScreen: { 
+    screen: Props,
+  },
+});
+
+const App = createAppContainer(AppNavigator);
+
+export default App;
