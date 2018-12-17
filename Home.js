@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 
 export default class HomeScreen extends Component {
 
@@ -7,6 +7,7 @@ export default class HomeScreen extends Component {
     super(props, context);
     this.onPressBasicProps = this.onPressBasicProps.bind(this);
     this.onPressStyles = this.onPressStyles.bind(this);
+    this.onPressLayout = this.onPressLayout.bind(this);
   }
 
   onPressBasicProps(event) {
@@ -15,6 +16,10 @@ export default class HomeScreen extends Component {
 
   onPressStyles(event) {
     this.props.navigation.navigate('StyleScreen', {name: 'Style'})
+  }
+
+  onPressLayout(event) {
+    this.props.navigation.navigate('LayoutScreen', {name: 'Layout with Flexbox'})
   }
 
   render() {
@@ -30,6 +35,11 @@ export default class HomeScreen extends Component {
           title="Styles"
           color='skyblue'
           accessibilityLabel="Learn more about styles"/>
+        <Button
+          onPress={this.onPressLayout}
+          title="Layout with Flexbox"
+          color='powderblue'
+          accessibilityLabel="Learn more about layout"/>
       </View>
     );
   }
